@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc && cp polyfill.js dist/",
-    "start": "node dist/server.js",
+    "start": "node start.js",
     "dev": "ts-node-dev --respawn --transpile-only server.ts",
     "watch": "tsc -w",
     "lint": "eslint . --ext .ts",
