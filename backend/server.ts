@@ -23,9 +23,19 @@ const app = express();
 
 // Security middleware
 app.use(helmet());
+const getAllowedOrigins = (): string[] => {
+  if (process.env.NODE_ENV === 'production') {
+    const frontendUrl = process.env.FRONTEND_URL;
+    return frontendUrl ? [frontendUrl] : [];
+  }
+  return ['http://localhost:8080', 'http://localhost:5173', 'http://localhost:8081'];
+};
+
+const allowedOrigins = getAllowedOrigins();
+
 app.use(
   cors({
-    origin: ['http://localhost:8080', 'http://localhost:5173', 'http://localhost:8081'], // Add port 8081
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']

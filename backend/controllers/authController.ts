@@ -124,7 +124,7 @@ export const login = async (req: Request, res: Response) => {
     }
     
     // Generate token
-    const token = generateToken(user._id);
+    const token = generateToken(user._id as Types.ObjectId);
     console.log('Login successful for user:', username);
     
     // Remove password from user object before sending response
