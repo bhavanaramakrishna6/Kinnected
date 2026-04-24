@@ -41,3 +41,6 @@ lerna-debug.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Bun (we use npm)
+bun.lockb
