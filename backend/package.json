@@ -4,7 +4,7 @@
   "description": "Backend for Kinnected family tree application",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp polyfill.js dist/",
     "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only server.ts",
     "watch": "tsc -w",

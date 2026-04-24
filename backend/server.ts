@@ -1,3 +1,6 @@
+// Polyfill for Node.js 25+ which removed SlowBuffer (needed by jsonwebtoken)
+require('./polyfill');
+
 import dotenv from 'dotenv';
 // Load environment variables first
 dotenv.config();
