@@ -9,7 +9,9 @@ export class CustomError extends Error {
     this.name = this.constructor.name;
     this.statusCode = statusCode;
     this.errors = errors;
-    Error.captureStackTrace(this, this.constructor);
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }
 
